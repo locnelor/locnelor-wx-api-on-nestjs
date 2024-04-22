@@ -1,0 +1,34 @@
+{
+  "projects": {
+    "request": {
+      "type": "library",
+      "root": "libs/request",
+      "entryFile": "index",
+      "sourceRoot": "libs/request/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/request/tsconfig.lib.json"
+      }
+    },
+    "wx-offiaccount": {
+      "type": "library",
+      "root": "libs/wx-offiaccount",
+      "entryFile": "index",
+      "sourceRoot": "libs/wx-offiaccount/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/wx-offiaccount/tsconfig.lib.json"
+      }
+    },
+    "wxpay": {
+      "type": "library",
+      "root": "libs/wxpay",
+      "entryFile": "index",
+      "sourceRoot": "libs/wxpay/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/wxpay/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}

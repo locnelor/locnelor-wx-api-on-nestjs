@@ -1,0 +1,25 @@
+{
+  "name": "locnelor-wx-api-on-nestjs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/locnelor/locnelor-wx-api-on-nestjs.git"
+  },
+  "author": "locnelor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/locnelor/locnelor-wx-api-on-nestjs/issues"
+  },
+  "homepage": "https://github.com/locnelor/locnelor-wx-api-on-nestjs#readme",
+  "dependencies": {
+    "@nestjs/common": "^10.3.8",
+    "@types/superagent": "^8.1.6",
+    "superagent": "^8.1.2",
+    "url": "^0.11.3"
+  }
+}
