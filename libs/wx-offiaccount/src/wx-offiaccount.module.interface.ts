@@ -1,5 +1,6 @@
 
 
 export interface WxOffiaccountModuleOptions {
-    baseUrl: string
+    secret: string
+    appid: string
 }
