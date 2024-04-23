@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { WXOFFIACCOUNT_MODULE_OPTIONS_TOKEN } from './wx-offiaccount.module-definition';
 import { WxOffiaccountModuleOptions } from './wx-offiaccount.module.interface';
 import { RequestService } from '@app/request';
-import { BatchgetMaterialData, CreateMenuData } from './interfaces/req.interface';
+import { BatchgetMaterialData, CreateMenuData, CreateQrcodeData } from './interfaces/req.interface';
 import { readFileSync } from "fs"
 @Injectable()
 export class WxOffiaccountService {
@@ -30,8 +30,8 @@ export class WxOffiaccountService {
             })
         })
     }
-    private async post(url: string, data: any) {
-        return new Promise((resolve, rejects) => {
+    private async post<T>(url: string, data: any) {
+        return new Promise<T>((resolve, rejects) => {
             this.requestService.get(url).query({
                 access_token: this.token
             }).send(data).then(({ body }) => {
@@ -221,7 +221,7 @@ export class WxOffiaccountService {
      * https://api.weixin.qq.com/cgi-bin/draft/add?access_token=ACCESS_TOKEN
      */
     public addDraft() {
-        
+
     }
 
     /**
@@ -321,7 +321,9 @@ export class WxOffiaccountService {
      * @link
      * https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=TOKEN
      */
-    public async createQrcode() { }
+    public async createQrcode(data: CreateQrcodeData) {
+        return this.post<CreateQrcodeData>("qrcode/create", data)
+    }
 
     /**
      * @description
@@ -330,5 +332,9 @@ export class WxOffiaccountService {
      * @link
      * https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=TICKET 
      */
-    public async showQrcode() { }
+    public async showQrcode(ticket: string) {
+        return this.get("showqrcode", {
+            ticket
+        })
+    }
 }

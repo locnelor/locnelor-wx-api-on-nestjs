@@ -26,3 +26,16 @@ export type BatchgetMaterialData = {
     offset: number,
     count: number
 }
+/**
+ * @description QR_SCENE 临时的整型参数值
+ * @description QR_STR_SCENE 临时的字符串参数值
+ * @description QR_LIMIT_SCENE 永久的整型参数值
+ * @description QR_LIMIT_STR_SCENE 永久的字符串参数值
+ */
+export type CreateQrcodeData = {
+    expire_seconds: number,
+    action_name: "QR_SCENE" | "QR_STR_SCENE" | "QR_LIMIT_SCENE" | "QR_LIMIT_STR_SCENE",
+    action_info: string,
+    scene_id?: number,
+    scene_str?: string
+}
